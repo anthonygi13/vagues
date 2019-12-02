@@ -6,6 +6,7 @@
 """
 Affiche un joli plot pour l'etude de la convergence de notre methode (en fonction du pas de tes utilise)
 pour des conditions initiales dont on connait la solution analytique
+Utile ?
 """
 
 import matplotlib.pyplot as plt
