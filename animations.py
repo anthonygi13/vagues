@@ -4,6 +4,7 @@
 # File : animations.py
 
 """Affiche et/ou enregistre les rendus visuels (pour plusieurs conditions initiales differentes eventuellement) (sans interruption !)
+    un petit commentaire
 """
 
 import matplotlib.pyplot as plt
