@@ -27,12 +27,13 @@ def partial2_y(grille, dy):
     return res
 
 
-def temps_suivant(grille_tnm1, grille_tnm2, dt):
+def temps_suivant(grille_tn, grille_tnm1, dt, dx, dy, h):
     """
     :param grille_tnm1: configuration au temps t_(n-1)
     :param grille_tnm2: configuration au temps t_(n-2)
     :param dt: pas de temps
     :return: configuration au temps t_n
     """
-    pass
+    return dt**2 * g*h * (partial2_x(grille_tn, dx) + partial2_y(grille_tn, dy)) + 2*grille_tn - grille_tnm1
+
 
