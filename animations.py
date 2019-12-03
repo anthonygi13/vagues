@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+ #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 # File : animations.py
@@ -51,7 +51,7 @@ ax.plot_surface(x, y, grille_t1)
 ax.set_zlim3d(0, h*2)
 plt.pause(dt)
 
-# FIXME: faire qqchose pour la lenteur de l'animation et le bug des bords
+# FIXME: faire quelque chose pour la lenteur de l'animation et le bug des bords
 while plt.get_fignums():
     grille_tn, grille_tnm1 = temps_suivant(grille_tn, grille_tnm1, dt, dx, dy, c), grille_tn
     ax.clear()
