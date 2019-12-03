@@ -44,12 +44,8 @@ grille_tn = grille_t1
 
 ax.plot_surface(x, y, grille_t0)
 ax.set_zlim3d(0, h*2)
-plt.pause(dt)
 
-ax.clear()
-ax.plot_surface(x, y, grille_t1)
-ax.set_zlim3d(0, h*2)
-plt.pause(dt)
+# TODO: animation propre qui va vite
 
 # FIXME: faire quelque chose pour la lenteur de l'animation et le bug des bords
 while plt.get_fignums():

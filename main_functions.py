@@ -20,6 +20,7 @@ def partial2_y(grille, dy):
     res = (grille1forward - 2*grille + grille1back) / dy**2
     return res
 
+
 def temps_suivant(grille_tn, grille_tnm1, dt, dx, dy, c):
     """
     :param grille_tnm1: configuration au temps t_(n-1)
