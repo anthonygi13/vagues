@@ -10,9 +10,9 @@ import numpy as np
 
 def partial2_x(grille, dx):
     res = np.zeros(grille.shape)
-    res[1:-1] = (grille[2:] - 2*grille[1:-1] + grille[:-2]) / dx**2
-    res[0] = res[1]
-    res[-1] = res[-2]
+    grille1back=np.roll(grille,-1,axis=1)
+    grille1forward=np.roll(grille,1,axis=1)
+    res = (grille1forward - 2*grille + grille1back) / dx**2
     return res
 
 
@@ -23,6 +23,12 @@ def partial2_y(grille, dy):
     res[:, -1] = res[:, -2]
     return res
 
+def partial2_y(grille, dy):
+    res = np.zeros(grille.shape)
+    grille1back=np.roll(grille,-1,axis=0)
+    grille1forward=np.roll(grille,1,axis=0)
+    res = (grille1forward - 2*grille + grille1back) / dy**2
+    return res
 
 def temps_suivant(grille_tn, grille_tnm1, dt, dx, dy, c):
     """
@@ -32,5 +38,3 @@ def temps_suivant(grille_tn, grille_tnm1, dt, dx, dy, c):
     :return: configuration au temps t_n
     """
     return dt**2 * c**2 * (partial2_x(grille_tn, dx) + partial2_y(grille_tn, dy)) + 2*grille_tn - grille_tnm1
-
-##rien
