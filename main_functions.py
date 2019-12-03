@@ -32,3 +32,5 @@ def temps_suivant(grille_tn, grille_tnm1, dt, dx, dy, c):
     :return: configuration au temps t_n
     """
     return dt**2 * c**2 * (partial2_x(grille_tn, dx) + partial2_y(grille_tn, dy)) + 2*grille_tn - grille_tnm1
+
+##rien
