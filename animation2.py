@@ -25,9 +25,9 @@ def animate(frame):
 xmax = 0.5
 ymax = 0.5
 
-dt = 0.001
-dx = 0.001
-dy = 0.001
+dt = 0.0005
+dx = 0.0005
+dy = 0.0005
 
 h = 0.1
 g = 9.81
@@ -39,14 +39,16 @@ x, y = np.meshgrid(x, y)
 x, y = x.T, y.T
 
 # conditions initiales (onde plane)
-nb_periodes = 5  # entier
-T = xmax / nb_periodes
+nb_periodes_x = 2  # entier
+nb_periodes_y = 3  # entier
+Tx = xmax / nb_periodes_x
+Ty = ymax / nb_periodes_y
 A = 0.025
-grille_t0 = h + A*np.cos(x*2*np.pi/T)
-grille_t1 = h + A*np.cos((x-c*dt)*2*np.pi/T)
+grille_t0 = h + A*np.cos(x*2*np.pi/Tx) + A*np.cos(y*2*np.pi/Ty)
+grille_t1 = h + A*np.cos((x-c*dt)*2*np.pi/Tx) + A*np.cos((y-c*dt)*2*np.pi/Ty)
 
 # plot
-nframe = 100
+nframe = 50
 
 fig = plt.figure()
 ax = fig.gca(projection='3d')
@@ -57,8 +59,6 @@ grille_tn = grille_t1
 plot = [ax.plot_surface(x, y, grille_t0, color='blue')]
 ax.set_zlim(0, h*2)
 
-# TODO: afficher animation ?
-
 grille_tn, grille_tnm1 = temps_suivant(grille_tn, grille_tnm1, dt, dx, dy, c), grille_tn
 ani = animation.FuncAnimation(fig, animate, frames=nframe, interval=50, repeat=True)
-ani.save('wave.mp4')
+ani.save('wave2.mp4')

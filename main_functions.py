@@ -9,14 +9,15 @@ import numpy as np
 
 
 def partial2_x(grille, dx):
-    grille1back=np.roll(grille,-1,axis=1)
-    grille1forward=np.roll(grille,1,axis=1)
+    grille1back = np.roll(grille, -1, axis=1)
+    grille1forward = np.roll(grille, 1, axis=1)
     res = (grille1forward - 2*grille + grille1back) / dx**2
     return res
 
+
 def partial2_y(grille, dy):
-    grille1back=np.roll(grille,-1,axis=0)
-    grille1forward=np.roll(grille,1,axis=0)
+    grille1back = np.roll(grille, -1, axis=0)
+    grille1forward = np.roll(grille, 1, axis=0)
     res = (grille1forward - 2*grille + grille1back) / dy**2
     return res
 

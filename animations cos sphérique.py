@@ -12,11 +12,13 @@ import numpy as np
 from main_functions import *
 
 
+# TODO: changer les conditions de periodisation
+
 # parametres du probleme (en unite SI)
 xmax = 0.5
 ymax = 0.5
 
-dt = 0.001
+dt = 0.0002
 dx = 0.001
 dy = 0.001
 
@@ -32,8 +34,8 @@ x, y = x.T, y.T
 # conditions initiales (onde plane)
 T = 0.05
 A = 0.025
-grille_t0 = h + A*np.cos(np.sqrt((x-xmax/2)**2+(y-ymax/2)**2)*2*np.pi/T)
-grille_t1 = h + A*np.cos((np.sqrt((x-xmax/2)**2+(y-ymax/2)**2)-c*dt)*2*np.pi/T)
+grille_t0 = h + A*np.cos(np.sqrt((x-xmax/2)**2+(y-ymax/2)**2)*2*np.pi/T)  # FIXME: probleme : normalement decroit en 1/r, mais du coup diverge en 0, faudrait trouver un moyen de gerer ca...
+grille_t1 = h + A*np.cos((np.sqrt((x-xmax/2)**2+(y-ymax/2)**2)-c*dt)*2*np.pi/T)  # FIXME: en plus de base c pas periodique la solution donc bof bof...
 
 # plot
 fig = plt.figure()
