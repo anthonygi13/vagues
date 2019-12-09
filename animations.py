@@ -59,6 +59,5 @@ ax.set_zlim(0, h*2)
 
 # TODO: afficher animation ?
 
-grille_tn, grille_tnm1 = temps_suivant(grille_tn, grille_tnm1, dt, dx, dy, c), grille_tn
 ani = animation.FuncAnimation(fig, animate, frames=nframe, interval=50, repeat=True)
 ani.save('wave.mp4')

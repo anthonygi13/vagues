@@ -40,15 +40,16 @@ x, y = x.T, y.T
 
 # conditions initiales (onde plane)
 nb_periodes_x = 2  # entier
-nb_periodes_y = 3  # entier
+nb_periodes_y = 2  # entier
 Tx = xmax / nb_periodes_x
 Ty = ymax / nb_periodes_y
 A = 0.025
-grille_t0 = h + A*np.cos(x*2*np.pi/Tx) + A*np.cos(y*2*np.pi/Ty)
-grille_t1 = h + A*np.cos((x-c*dt)*2*np.pi/Tx) + A*np.cos((y-c*dt)*2*np.pi/Ty)
+
+grille_t0 = h + A*np.cos(x*2*np.pi/Tx) + A*np.cos(x*2*np.pi/Tx + np.pi/2)
+grille_t1 = h + A*np.cos((x-c*dt)*2*np.pi/Tx) + A*np.cos((x+c*dt)*2*np.pi/Tx + np.pi/2)
 
 # plot
-nframe = 50
+nframe = 100
 
 fig = plt.figure()
 ax = fig.gca(projection='3d')
@@ -59,6 +60,5 @@ grille_tn = grille_t1
 plot = [ax.plot_surface(x, y, grille_t0, color='blue')]
 ax.set_zlim(0, h*2)
 
-grille_tn, grille_tnm1 = temps_suivant(grille_tn, grille_tnm1, dt, dx, dy, c), grille_tn
 ani = animation.FuncAnimation(fig, animate, frames=nframe, interval=50, repeat=True)
-ani.save('wave2.mp4')
+ani.save('wave3.mp4')
